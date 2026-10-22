@@ -1,0 +1,43 @@
+.adm { display: grid; grid-template-columns: 290px 1fr; min-height: 100vh; background: var(--bg); background-image: radial-gradient(circle at 20% 0%, rgba(var(--acr), 0.1), transparent 50%); }
+.adm-side { position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; padding: 32px 0 20px; border-right: 1px solid var(--ln); background: var(--glass); backdrop-filter: blur(14px); overflow-y: auto; z-index: 30; }
+.adm-brand { display: flex; align-items: center; gap: 14px; padding: 0 28px 28px; color: var(--tx); }
+.adm-brand b { display: block; font-size: 15px; letter-spacing: 5px; text-transform: uppercase; }
+.adm-brand small { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--mu); }
+.adm-grupo { padding: 18px 28px 8px; font-size: 11px; letter-spacing: 5px; text-transform: uppercase; color: var(--ac); }
+.adm-link { position: relative; display: flex; align-items: center; gap: 14px; padding: 12px 28px; font-size: 14px; letter-spacing: 3px; text-transform: uppercase; color: var(--mu); transition: color 0.3s, padding 0.35s, background 0.35s; }
+.adm-link:hover { color: var(--tx); padding-left: 38px; background: linear-gradient(90deg, color-mix(in srgb, var(--c, var(--ac)) 22%, transparent), transparent 80%); }
+.adm-link.on { color: var(--tx); background: linear-gradient(90deg, color-mix(in srgb, var(--c, var(--ac)) 28%, transparent), transparent 85%); }
+.adm-link.on::before { content: ''; position: absolute; left: 0; top: 8px; bottom: 8px; width: 2px; background: var(--c, var(--ac)); box-shadow: 0 0 12px var(--c, var(--ac)); }
+.adm-foot { margin-top: auto; padding: 24px 28px 0; border-top: 1px solid var(--ln); }
+.adm-user { color: var(--tx); font-size: 16px; margin-bottom: 4px; }
+.adm-user small { display: block; font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--mu); margin-top: 2px; }
+.adm-main { min-width: 0; display: flex; flex-direction: column; }
+.adm-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 22px 56px; border-bottom: 1px solid var(--ln); }
+.adm-menu-btn { display: none; min-height: 44px; min-width: 44px; align-items: center; justify-content: center; background: transparent; color: var(--tx); border: 1px solid var(--ln); border-radius: 999px; font-size: 20px; cursor: pointer; }
+.adm-crumb { font-size: 12px; letter-spacing: 4px; text-transform: uppercase; color: var(--mu); }
+.adm-content { padding: 64px 56px 96px; max-width: 1100px; width: 100%; }
+.adm-h1 { margin: 12px 0 18px; font-size: 44px; font-weight: 700; letter-spacing: 6px; text-transform: uppercase; color: var(--tx); line-height: 1.15; }
+.adm-sub { margin: 0 0 48px; max-width: 640px; font-style: italic; line-height: 1.8; color: var(--mu); }
+.adm-row { display: flex; align-items: center; gap: 28px; padding: 26px 12px; border-bottom: 1px solid var(--ln); transition: padding 0.35s, background 0.35s; }
+.adm-row:first-of-type { border-top: 1px solid var(--ln); }
+.adm-row:hover { padding-left: 30px; background: linear-gradient(90deg, color-mix(in srgb, var(--c, var(--ac)) 22%, transparent), transparent 70%); }
+.adm-row .t { flex: 0 0 240px; font-size: 22px; letter-spacing: 4px; text-transform: uppercase; color: var(--tx); }
+.adm-row .d { flex: 1; font-style: italic; color: var(--mu); line-height: 1.6; }
+.adm-row .a { color: var(--ac); transition: transform 0.3s; }
+.adm-row:hover .a { transform: translateX(8px); }
+.adm-vazio { padding: 56px 20px; text-align: center; border: 1px dashed var(--ln); border-radius: 4px; color: var(--mu); font-style: italic; }
+.adm-scrim { display: none; }
+
+@media (max-width: 1024px) {
+  .adm { grid-template-columns: 1fr; }
+  .adm-side { position: fixed; left: 0; top: 0; width: 290px; max-width: 86vw; transform: translateX(-100%); transition: transform 0.35s; background: var(--bg); }
+  .adm.open .adm-side { transform: none; }
+  .adm.open .adm-scrim { display: block; position: fixed; inset: 0; z-index: 20; background: rgba(0, 0, 0, 0.55); }
+  .adm-menu-btn { display: inline-flex; }
+  .adm-top { padding: 16px 20px; }
+  .adm-content { padding: 40px 20px 72px; }
+  .adm-h1 { font-size: 30px; letter-spacing: 4px; }
+  .adm-row { flex-wrap: wrap; gap: 8px 16px; }
+  .adm-row .t { flex-basis: 100%; font-size: 19px; }
+  .login-top { right: 16px; top: 16px; }
+}
